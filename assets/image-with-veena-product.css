@@ -1,0 +1,74 @@
+.new-hotspot-image-with-product-slider .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  /* Each product details block */
+  .new-hotspot-image-with-product-slider .product-details {
+    width: 32%; /* 3 products per row */
+    margin-bottom: 20px; /* Spacing between rows */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow around product */
+    border-radius: 8px; /* Rounded corners for product details */
+    overflow: hidden;
+    background-color: #fff; /* White background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect */
+  }
+  .new-hotspot-image-with-product-slider .product-details:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  }
+  /* Product image styling */
+  .new-hotspot-image-with-product-slider .product-image img {
+    width: 100%; /* Full width of the product block */
+    height: 500px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure the image covers the area while maintaining aspect ratio */
+    border-bottom: 2px solid #eee; /* Slight border at the bottom of the image */
+  }
+  /* Product heading styling */
+  .new-hotspot-image-with-product-slider .product-heading h2 {
+    font-family: 'Sofia Sans', sans-serif; /* Using the Sofia Sans font as per previous preferences */
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333; /* Dark gray for headings */
+    padding: 10px 15px; /* Padding around the heading */
+    margin: 0; /* Remove default margin */
+  }
+  /* Product description styling */
+  .new-hotspot-image-with-product-slider .product-description {
+    font-family: 'Poppins', sans-serif; /* Poppins for body text */
+    font-size: 1rem;
+    color: #666; /* Lighter gray for descriptions */
+    padding: 0 15px 10px; /* Padding for description area */
+  }
+  /* Button styling */
+  .new-hotspot-image-with-product-slider .product-button a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Sofia Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: rgb(18, 18, 18); /* Default button background color */
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 15px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .new-hotspot-image-with-product-slider .product-button a.btn:hover {
+    background-color: #d03 !important; /* Make sure hover is applied */
+  }
+
+  /* Responsive styling for tablets */
+  @media screen and (max-width: 1024px) {
+    .new-hotspot-image-with-product-slider .product-details {
+      width: 48%; /* 2 products per row for tablet screens */
+    }
+  }
+  /* Responsive styling for mobile devices */
+  @media screen and (max-width: 768px) {
+    .new-hotspot-image-with-product-slider .product-details {
+      width: 100%; /* 1 product per row for mobile devices */
+    }
+  }

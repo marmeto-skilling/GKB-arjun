@@ -1,0 +1,128 @@
+{{ 'product-hotspot-section.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-hotspot-section.js' | asset_url }}" defer></script>
+
+<div class="product-hotspot-section">
+    {% for block in section.blocks %}
+      <div class="product-card" style="position: relative;">
+        <!-- Main Image from Image Picker -->
+        <img src="{{ block.settings.main_image | img_url: 'medium' }}" alt="{{ block.settings.title }}">
+
+        <div class="product-info">
+          <h2>{{ block.settings.title }}</h2>
+          <p>{{ block.settings.description }}</p>
+          <button><a href="{{ block.settings.button_url }}">Discover More</a></button>
+        </div>
+
+        <!-- Hotspot 1 with Product Card -->
+        {% assign hotspot_1_product = all_products[block.settings.hotspot_1_product] %}
+        <div class="hotspot" style="top: {{ block.settings.hotspot_1_top }}%; left: {{ block.settings.hotspot_1_left }}%;" data-product="{{ block.settings.hotspot_1_product }}">
+          <div class="hotspot__dot"></div>
+          <div class="hotspot__tooltip">
+            <div class="hotspot_tooltip_content">
+              <img src="{{ hotspot_1_product.featured_image | img_url: 'medium' }}" alt="{{ hotspot_1_product.title }}">
+              <div>
+                <h5>{{ hotspot_1_product.title }}</h5>
+                <p>{{ hotspot_1_product.description }}</p>
+                <a href="{{ hotspot_1_product.url }}" class="btn">View Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspot 2 with Product Card -->
+        {% assign hotspot_2_product = all_products[block.settings.hotspot_2_product] %}
+        <div class="hotspot" style="top: {{ block.settings.hotspot_2_top }}%; left: {{ block.settings.hotspot_2_left }}%;" data-product="{{ block.settings.hotspot_2_product }}">
+          <div class="hotspot__dot"></div>
+          <div class="hotspot__tooltip">
+            <div class="hotspot_tooltip_content">
+              <img src="{{ hotspot_2_product.featured_image | img_url: 'medium' }}" alt="{{ hotspot_2_product.title }}">
+              <div>
+                <h5>{{ hotspot_2_product.title }}</h5>
+                <p>{{ hotspot_2_product.description }}</p>
+                <a href="{{ hotspot_2_product.url }}" class="btn">View Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product Hotspot Section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "product_block",
+        "name": "Product Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Product Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Product description goes here."
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          },
+          {
+            "type": "product",
+            "id": "hotspot_1_product",
+            "label": "Hotspot 1 Product",
+            "info": "Select the product for Hotspot 1"
+          },
+          {
+            "type": "number",
+            "id": "hotspot_1_top",
+            "label": "Hotspot 1 Vertical Position (%)",
+            "default": 20
+          },
+          {
+            "type": "number",
+            "id": "hotspot_1_left",
+            "label": "Hotspot 1 Horizontal Position (%)",
+            "default": 20
+          },
+          {
+            "type": "product",
+            "id": "hotspot_2_product",
+            "label": "Hotspot 2 Product",
+            "info": "Select the product for Hotspot 2"
+          },
+          {
+            "type": "number",
+            "id": "hotspot_2_top",
+            "label": "Hotspot 2 Vertical Position (%)",
+            "default": 40
+          },
+          {
+            "type": "number",
+            "id": "hotspot_2_left",
+            "label": "Hotspot 2 Horizontal Position (%)",
+            "default": 70
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default"
+      }
+    ]
+  }
+  {% endschema %}

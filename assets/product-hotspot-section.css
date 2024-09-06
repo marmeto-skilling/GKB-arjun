@@ -1,0 +1,106 @@
+.product-hotspot-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  /* Responsive columns for mobile screens */
+  @media (max-width: 768px) {
+    .product-hotspot-section {
+        grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Product card styling */
+  .product-card {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    border: 1px solid red;
+  }
+  
+  .product-card > img {
+    width: 100%;
+    height: inherit;
+    border-radius: 10px;
+  }
+  
+  /* Product info styling */
+  .product-info {
+    text-align: start;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  
+  .product-info > button {
+    display: inline-block;
+    padding: 1rem 1rem;
+    background-color: #010305;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    text-transform: capitalize;
+    border: 30px;
+  }
+  
+  .product-info > button:hover {
+    transition: ease-in-out;
+    background: linear-gradient(to right, rgb(243, 21, 58) 100%, rgb(7, 6, 7) 50%);
+  }
+  
+  .product-info > button > a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Hotspot styling */
+  .hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(18, 18, 18);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .hotspot__dot {
+    width: 15px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #1e1e1d;
+  }
+  
+  .hotspot__tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 20;
+  }
+  
+  /* Flex layout for hotspot content - side by side on large screens */
+  .hotspot_tooltip_content {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Hotspot content stacked vertically on mobile */
+  @media (max-width: 768px) {
+    .hotspot_tooltip_content {
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+  
+  /* Show tooltip on hover */
+  .hotspot:hover .hotspot__tooltip {
+    visibility: visible !important;
+    opacity: 1;
+  }
