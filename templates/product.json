@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -17,6 +26,11 @@
         },
         "price": {
           "type": "price",
+          "settings": {
+          }
+        },
+        "discount_pnWG4N": {
+          "type": "discount",
           "settings": {
           }
         },
@@ -55,6 +69,7 @@
         "vendor",
         "title",
         "price",
+        "discount_pnWG4N",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
